@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "default.html" %}
+
+{% block body %}
+
+
+{% for i in videos %}
+<div class="video_area">
+    <div class="video_title">{{i[1]}}</div>
+    <video src="static/mp4/{{i[2]}}.mp4" controls></video>
+</div>
+{% endfor %}
+
+{% if prev_page %}
+<div class="prev-next_button">
+    <a href="{{ url_for('list', page=prev_page, _external=True) }}"><button class="prev-next" role="button">< prev</button></a>
+    {% if next %}
+    <a href="{{ url_for('list', page=next_page, _external=True) }}"><button class="prev-next" role="button">next ></button></a>
+    {% endif %}
+{% elif next %}
+<div class="prev-next_button" style="justify-content:end;">
+    <a href="{{ url_for('list', page=next_page, _external=True) }}"><button class="prev-next" role="button">next ></button></a>
+{% endif %}
+</div>
+
+<div class="link_button">
+    <a href="{{ url_for('index') }}"><button class="button-51" role="button">Back to Top</button></a>
+</div>
+{% endblock %}

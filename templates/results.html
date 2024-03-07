@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "default.html" %}
+
+{% block body %}
+<div class="video_area">
+    <div class="video_title">{{video_title}}</div>
+    <video src="static/mp4/{{id}}.mp4" controls></video>
+</div>
+<div class="link_button">
+    <a href="{{ url_for('index') }}"><button class="button-51" role="button">Back to Top</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "default.html" %}
+
+{% block body %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="error_message">{{ messages[0] }}</div>
+{% else %}
+<div class="error_message">エラーが発生しました</div>
+{% endif %}
+{% endwith %}
+<div class="link_button">
+    <a href="{{ url_for('index') }}"><button class="button-51" role="button">Back to Top</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "default.html" %}
+
+{% block body %}
+
+<div class="form_area">
+    <div class="useage_text">40秒以上 5分以下のMP4ファイルを選択してください</div>
+    <form action="{{ url_for('post') }}" method="post" enctype="multipart/form-data">
+        <div>Title : <input id="video_title" type="text" name="video_title" required></div>
+        <div><input id="file_check" type="file" name="file" accept="mp4" required></div>
+        <div class="f_w_b m_t_20 m_b_10">Loop Type</div>
+        <div>
+            <input type="radio" value="1" name="type" checked>1　
+            <input type="radio" value="2" name="type">2　
+            <input type="radio" value="3" name="type">3　
+            <input type="radio" value="4" name="type">4　
+            <!-- <input type="radio" value="5" name="type">5 -->
+        </div>
+        <div class="button_area"><button id="submit_button" type="submit" class="button-51" role="button">Generate</button></div>
+    </form>
+
+    {% if data_exists %}
+    <div class="list_area"><a href="{{ url_for('list') }}"><button class="prev-next">List</button></a></div>
+    {% endif %}
+</div>
+<div class="loading_area">
+    <div>Please Wait……</div>
+    <div class="loading_box">
+        <div class="loader"></div>
+    </div>
+</div>
+
+{% endblock %}
